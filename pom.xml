@@ -31,10 +31,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.apache.pulsar.ecosystem</groupId>
-  <artifactId>pulsar-io-template</artifactId>
+  <artifactId>pulsar-io-hudi</artifactId>
   <version>0.0.1</version>
-  <name>Pulsar Ecosystem :: IO Connector :: Template Project</name>
-  <description>It is a project template for developing an Apache Pulsar connector</description>
+  <name>Pulsar Ecosystem :: IO Connector :: Hudi</name>
+  <description>Pulsar integration with Apache Hudi</description>
 
   <properties>
     <java.version>1.8</java.version>
@@ -48,6 +48,7 @@
     <jackson.version>2.9.7</jackson.version>
     <lombok.version>1.16.22</lombok.version>
     <pulsar.version>2.2.0</pulsar.version>
+    <hudi.version>0.8.0</hudi.version>
 
     <!-- test dependencies -->
     <junit.version>4.12</junit.version>
@@ -147,10 +148,22 @@
     </dependency>
 
     <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
+      <groupId>org.apache.pulsar</groupId>
+      <artifactId>pulsar-functions-instance</artifactId>
+      <version>${pulsar.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.hudi</groupId>
+      <artifactId>hudi-java-client</artifactId>
+      <version>${hudi.version}</version>
+    </dependency>
     <!-- test dependencies -->
     <dependency>
       <groupId>junit</groupId>
@@ -176,6 +189,11 @@
       <groupId>org.testcontainers</groupId>
       <artifactId>testcontainers</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.11.3</version>
     </dependency>
   </dependencies>
 
@@ -297,7 +315,7 @@
           <artifactId>spotbugs-maven-plugin</artifactId>
           <version>${spotbugs-maven-plugin.version}</version>
           <configuration>
-            <excludeFilterFile>${session.executionRootDirectory}/src/spotbugs/findbugsExclude.xml</excludeFilterFile>
+            <excludeFilterFile>${sessio.executionRootDirectory}/src/spotbugs/findbugsExclude.xml</excludeFilterFile>
           </configuration>
         </plugin>
       </plugins>

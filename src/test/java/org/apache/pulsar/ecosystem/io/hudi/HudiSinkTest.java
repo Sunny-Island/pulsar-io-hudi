@@ -16,7 +16,36 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+package org.apache.pulsar.ecosystem.io.hudi;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.pulsar.io.core.SourceContext;
+import org.junit.Before;
+import org.junit.Test;
+
 /**
- * Classes for implementing a pulsar IO connector that generates randomized messages.
+ * Unit test {@link HudiSink}.
  */
-package org.apache.pulsar.ecosystem.io.random;
+public class HudiSinkTest {
+
+    private final Map<String, Object> goodConfig = new HashMap<>();
+    private final Map<String, Object> badConfig = new HashMap<>();
+
+    @Before
+    public void setup() {
+        goodConfig.put("randomSeed", System.currentTimeMillis());
+        goodConfig.put("maxMessageSize", 1024);
+    }
+
+   @Test
+   public void singleWrite(){
+   }
+
+}
