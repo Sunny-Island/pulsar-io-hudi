@@ -21,4 +21,5 @@
   "tablePath": "file:///tmp/hoodie/sample-table",
   "tableName": "test-table",
   "tableType": "MERGE_ON_READ"
+  "schemaPath": "/exampleSchema.avsc"
 }
